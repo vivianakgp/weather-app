@@ -11,7 +11,8 @@ const Card = ({temp, icon, city, description, press, humidity, wSpeed}) => {
         <span>{`${temp}`}</span>
         </>
         <div className='details'>
-        <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt='img-weather' />
+        <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt='img-weather' />
+        {/* http://openweathermap.org/img/wn/10d@2x.png */}
         <ul>
             <li>{city}</li>
             <li>{description}</li>
