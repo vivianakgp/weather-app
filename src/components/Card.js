@@ -3,13 +3,14 @@ import humiImg from '../icons/humedad.png';
 import presureImg from '../icons/presion.png';
 import windImg from '../icons/viento.png';
 
-const Card = ({temp, icon, city, description, press, humidity, wSpeed}) => {
+const Card = ({temp, icon, city, description, press, humidity, wSpeed, eventHandle}) => {
     return (
-        <div className='card'>
+        <div className='card'> 
         <h1>The Weather</h1>
         <>
         <span>{`${temp}`}</span>
         </>
+        <button onClick={eventHandle}>℃ / ℉</button>
         <div className='details'>
         <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt='img-weather' />
         {/* http://openweathermap.org/img/wn/10d@2x.png */}

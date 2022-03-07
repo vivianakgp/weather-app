@@ -5,11 +5,12 @@ import Card from './components/Card';
 
 function WeatherApp() {
   const [ data, setData ] = useState(null);
-  const [ temperature, setTemperature ] = useState(0);
-  const [ control, setControl ] = useState(false)
+  const [ isCelcius , setisCelcius ] = useState(true);
+  const celciusDegrees = (data?.main.temp -273.15).toFixed();
+  const fahrenheitDegrees = (celciusDegrees * 1.8000 + 32).toFixed();
   useEffect(() => {
     function handleError (){
-      console.log('error')
+      console.log('error getting geolocation')
     };
     function success(position){
       const latitude = position.coords.latitude;
@@ -17,37 +18,28 @@ function WeatherApp() {
       axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=0c857f431ed4982bc4769b2aeee331ca`)
       .then(res => {
         console.log(res.data)
-        setData(res.data)
-        console.log(`èsta es la data disponible:${res.data.main.temp}`)
-        const kelvins = res.data.main.temp;
-        const convert = kelvins -273.15;
-        const celsius = convert.toFixed(2);
-        setTemperature(`${celsius}℃`)
+        setData(res.data)  
       })
-      .catch((err) => {console.log(err)})
+      .catch(err => console.log(err))
     };
     navigator.geolocation.getCurrentPosition( success , handleError);
   }, [ ]);
-  function handleChanges() {
-    const kelvins = data?.main.temp;
-    const cels = kelvins -273.15;
-    const celsius = cels.toFixed(2);
-    const fahrenheit = cels * 1.8000 + 32;
-    control?  setTemperature(`${fahrenheit.toFixed(2)}℉`):setTemperature(`${celsius}℃`);
-    setControl(!control);
+
+  function toggleCelcius() {
+    setisCelcius(!isCelcius);
   }
   return (
     <div className="App">
     <Card
-      temp={temperature}
+      temp={ isCelcius ? `${celciusDegrees} ℃` : `${fahrenheitDegrees} ℉`}
       icon={data?.weather[0].icon}
       city={`${data?.name}, ${data?.sys.country}`}
       description= {data?.weather[0].description}
       press={data?.main.pressure}
       humidity={data?.main.humidity}
       wSpeed={data?.wind.speed}
+      eventHandle={toggleCelcius}
     />
-    <button onClick={handleChanges}>℃ / ℉</button>
     </div>
   );
 }
