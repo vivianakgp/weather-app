@@ -4,8 +4,8 @@
 This app gets the weather in current time, shows the temperature in degrees celcius and fahrenheit, pressure, humidity, wind speed as well as a description of the current weather, it also changes the background according to this description.
 
 ## Screenshot
-![Mobile](/path/to/the/screenshot.png)
-![Desktopt](/path/to/the/screenshot.png)
+![Mobile](https://github.com/vivianakgp/weather-app/blob/main/src/image/Captura%20de%20pantalla%20(10).png?raw=true)
+![Desktopt](https://github.com/vivianakgp/weather-app/blob/main/src/image/Captura%20de%20pantalla%20(11).png?raw=trueg)
 
 
 ### Technologies
