@@ -11,7 +11,7 @@ This app gets the weather in current time, shows the temperature in degrees celc
 ### Technologies
 
 A list of technologies used within the project:
-* [Create React App](https://github.com/facebook/create-react-app).
+* [Create React App](https://github.com/facebook/create-react-app)
 * [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 * [Css](https://developer.mozilla.org/es/docs/Web/CSS)
 * [Weather API](https://openweathermap.org/api)
@@ -25,6 +25,7 @@ $ cd ../path/to/the/file
 $ npm install
 $ npm start
 ```
+[Deploy](https://stupefied-jennings-007503.netlify.app)
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
